@@ -1,9 +1,36 @@
-// For loop
-for (let i = 1; i <=10; i++) {
-    console.log(
-        "Numbers: " + i
-    )
+// Return Values
+function add(a, b) {
+    return a + b
 }
+
+let perimeter = add(4, 5) * 2
+let result = add(4, 5) * 8
+console.log(perimeter)
+console.log(result)
+
+
+// Parameters and Arguments
+function area(a, b) {
+     console.log (0.5 * a * b)
+}
+
+area(8, 4) * 2
+
+
+// function helloStudents(name) {   //parameters
+//     console.log("Hello, Welcome To Today's Class For JavaScript " + name + "!")
+// }
+
+// helloStudents("Michael")   // arguments
+// helloStudents("Emmanuella") // arguments
+// helloStudents('Israel')  // arguments
+
+// For loop
+// for (let i = 1; i <=10; i++) {
+//     console.log(
+//         "Numbers: " + i
+//     )
+// }
 
 
 // While Loop 
