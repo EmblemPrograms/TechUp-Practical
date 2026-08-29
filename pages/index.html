@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript Basics</title>
-  <script src="/js/app.js"> </script>
+  <!-- <script src="/js/app.js"> </script> -->
 </head>
+
 <body>
-  <h1>My First JavaScript</h1>
+  <h1>Student list</h1>
 
-<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
+  <button id="showBtn">Show Available Students</button>
+  <button id="clrBtn">Clear</button>
+  <div id="output"></div>
 
-<p id="demo"></p>
+  <script>
+    const students = [
+      { id: 1, name: "Hikmat", age: 16, isPresent: true },
+      { id: 2, name: "Anthony", age: 16, isPresent: true },
+      { id: 3, name: "Emmanuella", age: 16, isPresent: false },
+      { id: 4, name: "Abdulsalam", age: 16, isPresent: false },
+    ];
+
+    const output = document.getElementById("output")
+    const showBtn = document.getElementById("showBtn")
+    const clrBtn = document.getElementById("clrBtn")
+
+    showBtn.addEventListener("click", function () {
+      let html = "<ul>";
+
+
+
+      for (let student of students) {
+        if (student.isPresent) {
+          html += `<li>${student.name} - ${student.age}</li>`;
+        }
+      }
+
+      html += "</ul>";
+      output.innerHTML = html;
+    })
+    clrBtn.addEventListener("click", function () {
+      output.innerHTML = ""
+    })
+  </script>
 </body>
+
 </html>

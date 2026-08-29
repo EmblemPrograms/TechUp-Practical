@@ -1,20 +1,79 @@
+// Array of Objects
+
+
+// Objects
+const student= {
+    name: "Ajayi Hikmat" ,
+    sId: "AH01",
+    age: 16,
+    isPresent: true,
+    class:"SS1",
+    subjects: ["Math", "English", "Science"]
+}
+
+student.class = "SS2"
+const key = "sId"
+console.log(student)
+// console.log(student.class)
+console.log(student[key])
+
+// Looping Through Arrays
+
+
+// const colors = ["Red", "Blue", "Green"]
+
+// for (let color of colors) {
+//     console.log(color)
+// }
+// colors.forEach(function(color, index) { 
+//     console.log(index + ":" + color)
+// }
+// )
+
+
+// for (let glory of colors) {
+//     console.log(glory)
+// }
+
+// for(let i = 0; i < colors.length; i++) {
+//  console.log(colors[i])
+//}
+
+
+
+
+// const fruits = ["Apple", "Banana", "Orange"]
+// fruits.push("Mango")
+// fruits.push("Cherry")
+// fruits.push("Cucumber")
+// fruits.pop()
+// fruits.unshift("Tangerine")
+// fruits.shift()
+
+// const fruit = fruits.indexOf('Orange')
+// const inde = fruits.includes("Appyle")
+
+// console.log(fruit)
+// console.log(inde)
+// console.log(fruits)
+
 // Return Values
-function add(a, b) {
-    return a + b
-}
+// function add(a, b) {
+//     return a + b
+// }
 
-let perimeter = add(4, 5) * 2
-let result = add(4, 5) * 8
-console.log(perimeter)
-console.log(result)
+// let perimeter = add(4, 5) * 2
+// let result = add(4, 5) * 8
+// console.log(perimeter)
+// console.log(result)
 
 
-// Parameters and Arguments
-function area(a, b) {
-     console.log (0.5 * a * b)
-}
+// // Parameters and Arguments
+// function area(a, b) {
+//      console.log (0.5 * a * b)
+// }
 
-area(8, 4) * 2
+// area(8, 4) * 2
 
 
 // function helloStudents(name) {   //parameters
@@ -125,4 +184,4 @@ area(8, 4) * 2
 // console.log (exponential)
 // console.log(count)
 // console.log(count2)
-// console.log(areaofatriangle)
+// console.log(areaofatrian
