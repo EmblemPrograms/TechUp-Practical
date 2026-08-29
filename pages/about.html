@@ -53,12 +53,12 @@
         myPara[2].innerHTML = "Hello World!";
         myPara[3].innerHTML = "Hello World!";
 
-        const x = document.getElementById("main");
-        const y = x.getElementsByTagName("p");
+        const container = document.getElementById("main");
+        const seed = container.getElementsByTagName("p");
 
-        y.innerHTML = "This is a Paragraph"
+        seed.innerHTML = "This is a Paragraph"
 
-        document.getElementById("demo").innerHTML = y[0].innerHTML + "<br>" + y[1].innerHTML;
+        document.getElementById("demo").innerHTML = seed[0].innerHTML + "<br>" + seed[1].innerHTML;
 
     </script>
 </body>
