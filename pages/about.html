@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript</title>
+    <title>JavaScript DOM</title>
+    <!-- <script src="../js/about.js"></script> -->
 </head>
+
 <body>
-    <div>
-        <h1>This is a new page</h1>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum earum accusamus ad obcaecati nobis, dolorem exercitationem consectetur dolores dicta officia repellendus! Doloribus adipisci odio eius neque! Quibusdam, explicabo ad.
+    <div id="main">
+        <h1 id="title">This is an about</h1>
+        <h2 class=""></h2>
+
+        <p>Welcome to TechUp Academy</p>
+        <p>This is the first cohort</p>
+        <p id="demo">
+
+        </p>
     </div>
+
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+
+
+    <script>
+        const title = document.getElementById("title");
+        const demo = document.getElementById('demo');
+
+        title.textContent = "This is Week 7 Class 2";
+        demo.innerText = Date();
+
+        const cards = document.getElementsByClassName("card");
+
+        Array.from(cards).forEach((card) => {
+            card.innerHTML = "<b>This is a preview card</b>"
+        })
+
+        // const myPara = document.querySelector(".card");
+
+
+
+        // // Change the content of the Element
+        // myPara.innerHTML = "Hello World!";
+
+        const myPara = document.querySelectorAll(".card");
+        // Change the content of the Element
+        myPara[0].innerHTML = "Hello World!";
+        // myPara[1].innerHTML = "Hello World!";
+        myPara[2].innerHTML = "Hello World!";
+        myPara[3].innerHTML = "Hello World!";
+
+        const x = document.getElementById("main");
+        const y = x.getElementsByTagName("p");
+
+        y.innerHTML = "This is a Paragraph"
+
+        document.getElementById("demo").innerHTML = y[0].innerHTML + "<br>" + y[1].innerHTML;
+
+    </script>
 </body>
+
 </html>
