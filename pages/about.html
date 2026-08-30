@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <div id="main">
+    <div id="main" class="box">
         <h1 id="title">This is an about</h1>
-        <h2 class=""></h2>
+        <h2 class="subtitle">Welcome to the Third class of the week</h2>
 
         <p>Welcome to TechUp Academy</p>
         <p>This is the first cohort</p>
@@ -20,6 +20,10 @@
         </p>
     </div>
 
+
+    <button id="add-item">Add new Item</button>
+    <div id="list-container"></div>
+
     <div class="card"></div>
     <div class="card"></div>
     <div class="card"></div>
@@ -27,6 +31,32 @@
 
 
     <script>
+        const addBtn = document.querySelector("#add-item")
+        const listContainer = document.querySelector("#list-container")
+
+        let counter = 1
+        addBtn.addEventListener("click", function () {
+             const newItem = document.createElement("div")
+             const Sname = "Student name"
+            newItem.classList.add("card")
+            newItem.textContent = counter  + Sname  + ":" + " Hikmat"
+            listContainer.appendChild(newItem);
+            counter++
+})
+        const box = document.querySelector(".box");
+
+        box.style.backgroundColor = "lightblue"
+        box.style.padding = "20px"
+        box.style.borderRadius = "20px"
+
+
+        // const subtitle = document.querySelector("subtitle")
+
+        // subtitle.classList.remove("hidden")
+
+
+
+
         const title = document.getElementById("title");
         const demo = document.getElementById('demo');
 
@@ -39,19 +69,19 @@
             card.innerHTML = "<b>This is a preview card</b>"
         })
 
-        // const myPara = document.querySelector(".card");
+        
 
 
 
         // // Change the content of the Element
         // myPara.innerHTML = "Hello World!";
 
-        const myPara = document.querySelectorAll(".card");
-        // Change the content of the Element
-        myPara[0].innerHTML = "Hello World!";
-        // myPara[1].innerHTML = "Hello World!";
-        myPara[2].innerHTML = "Hello World!";
-        myPara[3].innerHTML = "Hello World!";
+        // const myPara = document.querySelectorAll(".card");
+        // // Change the content of the Element
+        // myPara[0].innerHTML = "Hello World!";
+        // // myPara[1].innerHTML = "Hello World!";
+        // myPara[2].innerHTML = "Hello World!";
+        // myPara[3].innerHTML = "Hello World!";
 
         const container = document.getElementById("main");
         const seed = container.getElementsByTagName("p");
@@ -63,4 +93,4 @@
     </script>
 </body>
 
-</html>
+</ht
