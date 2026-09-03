@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Events And Listeners</h1>
+
+    <input type="text" id="name">
+    <p id="preview"></p>
+    <button id="show" class="card-btn">Click</button>
+
+    <div class="card" id="info-card">
+      <p class="card-text">This is the original card content.</p>
+    </div>
+
+    <div class="button-container">
+
+    <button class="my-button">Change</button>
+    <button class="my-button">Login</button>
+
+    
+</div>
+<button class="my-button">Login</button>
+    <script>
+
+        //selecting multiple elements by delegation
+        const container = document.querySelector('.button-container');
+        const display = document.querySelector(".card-text")
+
+// 2. Add one listener to that parent
+container.addEventListener('click', (event) => {
+  // 3. Filter out clicks that aren't on the target elements
+  const button = event.target.closest('.my-button');
+  
+  if (button) {
+    display.textContent = "Button Clicked via Delegation " + event.target.textContent
+  }
+});
+        //selecting multiple elements by looping
+        // const buttons = document.querySelectorAll(".card-btn")
+        // const display = document.querySelector(".card-text")
+
+        
+
+        // buttons.forEach(function(button) {
+        //     button.addEventListener("click", function(event) {
+        //         display.textContent = "You clicked " + event.target.textContent
+        //     })
+        // })
+
+  // Triggers as soon as the HTML text is parsed
+  document.addEventListener("DOMContentLoaded", function () {
+      alert("The DOM content has loaded!");
+  });
+
+        const show = document.getElementById("show")
+
+        show.addEventListener("click", () => {
+            alert("You clicked the button!");
+        }
+    )
+
+    const nameInput = document.querySelector("#name")
+
+    const preview = document.querySelector("#preview")
+
+    nameInput.addEventListener("keydown", function(event) {
+        preview.textContent = "Hello, " + event.target.value
+    })
+    </script>
+</body>
+</html>

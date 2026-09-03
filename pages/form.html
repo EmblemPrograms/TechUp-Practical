@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef4ff, #dfefff);
+      padding: 20px;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 650px;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1f2a44;
+    }
+
+    .message{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        /* color: red; */
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 600;
+      color: #2d3a59;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d0d8e6;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #4a7cff;
+      box-shadow: 0 0 0 3px rgba(74, 124, 255, 0.12);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 10px;
+      border: none;
+      background: linear-gradient(135deg, #4a7cff, #6a5cff);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(74, 124, 255, 0.25);
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-container {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Student Registration Form</h2>
+    <p id="message" class="message"></p>
+    <form id="form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first-name" placeholder="Enter your first name"  />
+        </div>
+
+        <div class="field">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last-name" placeholder="Enter your last name"  />
+        </div>
+
+        <div class="field full">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com"  />
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890"  />
+        </div>
+
+        <div class="field">
+          <label for="course">Course</label>
+          <select id="course" name="course" >
+            <option value="">Select a course</option>
+            <option>Web Development</option>
+            <option>Graphic Design</option>
+            <option>Data Science</option>
+            <option>Cyber Security</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" placeholder="Enter your address"></textarea>
+        </div>
+
+        <div class="field full">
+          <button type="submit">Submit Form</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const firstName = document.getElementById("first-name").value.trim();
+      const lastName = document.getElementById("last-name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const course = document.getElementById("course").value;
+      const address = document.getElementById("address").value.trim();
+
+      const messageElement = document.querySelector("#message");
+
+      function showError(message) {
+        messageElement.textContent = message;
+        messageElement.style.color = "red";
+      }
+
+      if (phone === ""|| firstName === "" || lastName === "" || email === "" || course === "") {
+        showError("Please fill in all required fields.");
+      } else if (phone.length < 11) {
+        showError("Phone number must be at least 11 digits.");
+      } else if (phone.length > 15) {
+        showError("Phone number must not exceed 15 digits.");
+      } else if (!/^\+?\d+$/.test(phone)) {
+        showError("Phone number can only contain digits and an optional leading '+'.");
+      } else {
+        messageElement.textContent = "";
+
+      console.log("Form Submitted:");
+      console.log("First Name:", firstName);
+      console.log("Last Name:", lastName);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
+      console.log("Course:", course);
+      console.log("Address:", address);
+
+      messageElement.textContent = `Thank you for registering, ${firstName} ${lastName}!`;
+      messageElement.style.color = "green"
+
+      form.reset();
+    }
+    });
+
+  </script>
+</body>
