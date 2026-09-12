@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        h2 {
+            color: #1a73e8;
+            margin: 2rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 1.75rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: #374151;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.7rem 0.85rem;
+            border: 2px solid #90caf9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        button[type="submit"] {
+            background-color: #1a73e8;
+            color: #ffffff;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.25s ease, transform 0.15s ease;
+            margin-top: 0.5rem;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1669c1;
+            transform: scale(1.02);
+        }
+
+        #error {
+            color: #ef5350;
+            font-size: 0.9rem;
+            min-height: 1.3rem;
+            margin-top: 0.25rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th, td {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        .delete-btn {
+            background-color: #ef5350;
+            color: #ffffff;
+            border: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+            transform: scale(1.05);
+        }
+
+        #emptyMessage {
+            text-align: center;
+            color: #6b7280;
+            padding: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Registration</h1>
+
+        <form id="registrationForm" novalidate>
+            <div class="form-row">
+                <div>
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required minlength="3" placeholder="Enter full name">
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required minlength="4" placeholder="Choose a username">
+                </div>
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" required placeholder="Street address">
+                </div>
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="full-width">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required minlength="6" placeholder="Minimum 6 characters">
+                </div>
+            </div>
+
+            <p id="error"></p>
+            <button type="submit">Register</button>
+        </form>
+
+        <h2>Registered Users</h2>
+        <div class="table-wrapper">
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Date of Birth</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="usersBody">
+                </tbody>
+            </table>
+            <p id="emptyMessage" class="hidden">No registered users yet.</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const errorElement = document.getElementById('error');
+        const usersBody = document.getElementById('usersBody');
+        const emptyMessage = document.getElementById('emptyMessage');
+        const STORAGE_KEY = 'registeredUsers';
+
+        function showError(message) {
+            errorElement.textContent = message;
+        }
+
+        function clearError() {
+            errorElement.textContent = '';
+        }
+
+        function getUsers() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+        }
+
+        function renderTable() {
+            const users = getUsers();
+            usersBody.innerHTML = '';
+
+            if (users.length === 0) {
+                emptyMessage.classList.remove('hidden');
+                return;
+            }
+
+            emptyMessage.classList.add('hidden');
+
+            users.forEach((user, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${escapeHtml(user.fullName)}</td>
+                    <td>${escapeHtml(user.email)}</td>
+                    <td>${escapeHtml(user.username)}</td>
+                    <td>${escapeHtml(user.phone)}</td>
+                    <td>${escapeHtml(user.address)}</td>
+                    <td>${escapeHtml(user.dob)}</td>
+                    <td>
+                        <button class="delete-btn" data-index="${index}" type="button">Delete</button>
+                    </td>
+                `;
+                usersBody.appendChild(tr);
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            clearError();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const dob = document.getElementById('dob').value;
+            const password = document.getElementById('password').value;
+
+            if (!fullName || fullName.length < 3) {
+                showError('Full name must be at least 3 characters.');
+                return;
+            }
+            if (!email || !email.includes('@')) {
+                showError('Please enter a valid email address.');
+                return;
+            }
+            if (!username || username.length < 4) {
+                showError('Username must be at least 4 characters.');
+                return;
+            }
+            if (!phone) {
+                showError('Phone number is required.');
+                return;
+            }
+            if (!address) {
+                showError('Address is required.');
+                return;
+            }
+            if (!dob) {
+                showError('Date of birth is required.');
+                return;
+            }
+            if (!password || password.length < 6) {
+                showError('Password must be at least 6 characters.');
+                return;
+            }
+
+            const users = getUsers();
+
+            // Prevent duplicate email or username
+            if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+                showError('This email is already registered.');
+                return;
+            }
+            if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
+                showError('This username is already taken.');
+                return;
+            }
+
+            const newUser = {
+                id: Date.now().toString(),
+                fullName,
+                email,
+                username,
+                phone,
+                address,
+                dob,
+                password // stored but never displayed
+            };
+
+            users.push(newUser);
+            saveUsers(users);
+            renderTable();
+            form.reset();
+            clearError();
+        });
+
+        usersBody.addEventListener('click', function (event) {
+            if (event.target.classList.contains('delete-btn')) {
+                const index = parseInt(event.target.getAttribute('data-index'), 10);
+                const users = getUsers();
+                users.splice(index, 1);
+                saveUsers(users);
+                renderTable();
+            }
+        });
+
+        // Initial render
+        renderTable();
+    </script>
+</body>
+</html>

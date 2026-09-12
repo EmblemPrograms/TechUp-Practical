@@ -1,3 +1,6 @@
+import images from "./assets/profile.jpg"
+import images1 from "./assets/hero.png"
+
 function Expressions() {
     const firstName = "Emmanuel"
     const lastName = "Rashidat"
@@ -8,6 +11,7 @@ function Expressions() {
     return (
         <div>
             <h1>Welcome to TechUp Academy, {firstName + " " + lastName}</h1>
+            <img src={images} alt="profile" />
             <p className="age">You are {age} years old.</p>
             <p className="registered">{isRegistered ? "You are registered." : "You are not registered."}</p>
         </div>
