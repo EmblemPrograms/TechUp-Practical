@@ -1,10 +1,10 @@
-import './App.css'
 function Form() {
     return (
         <>
-            <h1>Registration Form</h1>
-            <h2>Fill your details</h2>
+            
             <form>
+                <h1>Registration Form</h1>
+            <h2>Fill your details</h2>
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
