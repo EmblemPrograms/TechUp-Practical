@@ -1,48 +1,62 @@
-function StudentCard(props) {
+// import './card.css'
+function StudentCard({name, course, city}) {
     return (
-        <div>
-            <h2>{props.name}</h2>
-            <p>{props.course}</p>
-            <p>{props.age}</p>
-            <p>{props.level}</p>
-            <p>{props.active}</p>
+        <>
+        <div className='container'>
+            
+            <h2>{name}</h2>
+            <p>{course}</p>
+            <p>{city}</p>
+
         </div>
+        </>
     )
 }
 
 function App() {
+    const students = [
+         {
+            id: 1,
+            name:"David",
+            course:"React",
+            age: 20,
+            city:"Lagos"
+        },
+        {
+            id: 2,
+            name:"Hikmat",
+            course:"React",
+            age: 20,
+            city:"Lagos"
+        },
+        {
+            id: 3,
+            name:"Michael",
+            course:"React",
+            age: 20,
+            city:"Lagos"
+        },
+        {
+            id: 4,
+            name:"Glory",
+            course:"React",
+            age:20,
+            city:"Lagos"
+        },
+    ]
     return (
-        <>
-        <h1>Students</h1>
-        <StudentCard 
-        name="Rashidat"
-        course="FrontEnd Development"
-        age= {20}
-        level= "First Cohort"
-        active= {true}
-        />
-        <StudentCard 
-        name="Moses"
-        course="FrontEnd Development"
-         age= {21}
-        level= "First Cohort"
-        active= {false}
-        />
-        <StudentCard 
-        name="Hikmat"
-        course="FrontEnd Development"
-         age= {22}
-        level= "First Cohort"
-        active= {true}
-        />
-        <StudentCard 
-        name="Ibrahim"
-        course="FrontEnd Development"
-         age= {23}
-        level= "First Cohort"
-        active= {false}
-        />
-        </>
+        <div>
+            {students.map((student) => (
+            <StudentCard 
+            key = {student.id}
+            name={student.name}
+            course={student.course}
+            city={student.city}
+
+            />
+        ))}
+        </div>
     )
 }
+
 export default App
