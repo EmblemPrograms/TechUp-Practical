@@ -1,67 +1,34 @@
 function Maincontent() {
+    const cards = [
+        { title: 'Overview', text: 'Get a quick summary of the project and its purpose.' },
+        { title: 'Features', text: 'Discover the tools and functions that make this app useful.' },
+        { title: 'Progress', text: 'Track updates and see how the application is evolving.' }
+    ];
+
     return (
-        <main style={{
-            padding: '40px 24px',
-            background: 'linear-gradient(135deg, #f5f7ff 0%, #eef6ff 100%)',
-            minHeight: '60vh',
-            fontFamily: 'Arial, sans-serif',
-            color: '#1f2937'
-        }}>
-            <div style={{
-                maxWidth: '800px',
-                margin: '0 auto'
-            }}>
-                <section style={{
-                    textAlign: 'center',
-                    marginBottom: '32px'
-                }}>
-                    <h2 style={{
-                        margin: '0 0 12px',
-                        fontSize: '2.5rem',
-                        color: '#111827'
-                    }}>Main Content</h2>
-                    <p style={{
-                        margin: 0,
-                        fontSize: '1.1rem',
-                        color: '#4b5563',
-                        lineHeight: 1.6
-                    }}>
+        <main className="bg-gradient-to-br from-indigo-50 to-blue-50 text-gray-800 min-h-[60vh] px-6 py-10">
+            <div className="max-w-3xl mx-auto">
+                <section className="text-center mb-8">
+                    <h2 className="text-4xl font-bold text-gray-900 mb-3">Main Content</h2>
+                    <p className="text-lg text-gray-600 leading-relaxed">
                         This is the main content of the application, designed to present key information clearly and professionally.
                     </p>
                 </section>
 
-                <section style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-                    gap: '20px'
-                }}>
-                    {[
-                        { title: 'Overview', text: 'Get a quick summary of the project and its purpose.' },
-                        { title: 'Features', text: 'Discover the tools and functions that make this app useful.' },
-                        { title: 'Progress', text: 'Track updates and see how the application is evolving.' }
-                    ].map((card) => (
-                        <div key={card.title} style={{
-                            background: '#ffffff',
-                            borderRadius: '16px',
-                            padding: '24px 20px',
-                            boxShadow: '0 8px 24px rgba(15, 23, 42, 0.08)',
-                            border: '1px solid #e5e7eb'
-                        }}>
-                            <h3 style={{
-                                margin: '0 0 10px',
-                                fontSize: '1.3rem',
-                                color: '#1f2937'
-                            }}>{card.title}</h3>
-                            <p style={{
-                                margin: 0,
-                                color: '#6b7280',
-                                lineHeight: 1.6
-                            }}>{card.text}</p>
+                <section className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+                    {cards.map((card) => (
+                        <div
+                            key={card.title}
+                            className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200"
+                        >
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">{card.title}</h3>
+                            <p className="text-gray-500 leading-relaxed">{card.text}</p>
                         </div>
                     ))}
                 </section>
             </div>
         </main>
-    )
+    );
 }
+
 export default Maincontent
