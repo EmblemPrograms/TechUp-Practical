@@ -6,7 +6,7 @@ function Maincontent() {
     ];
 
     return (
-        <main className="bg-gradient-to-br from-indigo-50 to-blue-50 text-gray-800 min-h-[60vh] px-6 py-10">
+        <main className="bg-linear-to-br from-indigo-50 to-blue-50 text-gray-800 min-h-[60vh] px-6 py-10">
             <div className="max-w-3xl mx-auto">
                 <section className="text-center mb-8">
                     <h2 className="text-4xl font-bold text-gray-900 mb-3">Main Content</h2>
@@ -15,7 +15,7 @@ function Maincontent() {
                     </p>
                 </section>
 
-                <section className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+                <section className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
                     {cards.map((card) => (
                         <div
                             key={card.title}
