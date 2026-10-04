@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+.link {
+    @apply border rounded-sm py-1 px-2 hover:text-red-600 transition duration-200;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+--color-brand-50: #eff6ff;
+--color-brand-500: #1d4ed8;
+--color-brand-700: #1e3a8a;
+--color-accent: #f59e0b;
+--font-display: "Poppins", sans-serif;
+}

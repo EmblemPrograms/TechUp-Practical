@@ -13,6 +13,4 @@ function CourseCard({ title, weeks, level, students }) {
 
 }
 
-
-
 export default CourseCard;

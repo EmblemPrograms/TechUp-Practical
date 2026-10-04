@@ -1,0 +1,3 @@
+.link {
+    @apply border rounded-sm py-1 px-2 hover:text-emerald-600 transition duration-200;
+}
