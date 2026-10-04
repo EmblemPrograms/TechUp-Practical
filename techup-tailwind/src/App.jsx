@@ -7,25 +7,29 @@ import Login from './components/Login';
 // import CourseCard from './components/Coursecard';
 import Footer from './components/Footer';
 import State from './components/State';
+import Events from './pages/EventHandler';
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
     
     return (
-        <div className={darkMode ? 'dark' : ''}>
-            <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-            <Navbar />
-            <button onClick={() => setDarkMode(!darkMode)} className="fixed top-4 right-30 bg-gray-800 text-white px-4 py-2 rounded-lg z-50">
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
-            </button>
-            <Routes>
-                <Route path="/" element={<><Maincontent /><Grid /><State /></>} />
-                <Route path="/login" element={<Login />} />
+        <>
+        <Events />
+        </>
+        // <div className={darkMode ? 'dark' : ''}>
+        //     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+        //     <Navbar />
+        //     <button onClick={() => setDarkMode(!darkMode)} className="fixed top-4 right-30 bg-gray-800 text-white px-4 py-2 rounded-lg z-50">
+        //         {darkMode ? 'Light Mode' : 'Dark Mode'}
+        //     </button>
+        //     <Routes>
+        //         <Route path="/" element={<><Maincontent /><Grid /><State /></>} />
+        //         <Route path="/login" element={<Login />} />
 
-            </Routes>
-            <Footer />
-            </div>
-        </div>
+        //     </Routes>
+        //     <Footer />
+        //     </div>
+        // </div>
     );
 }
 
